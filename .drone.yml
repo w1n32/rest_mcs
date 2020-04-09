@@ -1,9 +1,0 @@
-kind: pipeline
-name: default
-steps:
-- name: linter
-  image: python
-  commands:
-  - pip install -r requirements.txt
-  - pip install pylint
-  - pylint app.py
