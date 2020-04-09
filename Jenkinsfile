@@ -3,7 +3,11 @@ pipeline {
     stages {
         stage('CHeck'){
             steps{
-            sh("ls -lah")
+            sh '''
+		#!/bin/bash +x
+		ls -lah
+		hostname
+		'''
             }
          }
     }
