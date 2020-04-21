@@ -7,7 +7,9 @@ pipeline {
             }
          }
         stage('Push container to registry'){
-            sh 'docker push 197333576876.dkr.ecr.eu-central-1.amazonaws.com/mcs:latest'
+            steps{
+                sh 'docker push 197333576876.dkr.ecr.eu-central-1.amazonaws.com/mcs:latest'
+            }
         }
     }
 }
