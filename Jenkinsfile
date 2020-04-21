@@ -12,4 +12,9 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            sh 'docker rmi mcs'
+        }
+    }
 }
