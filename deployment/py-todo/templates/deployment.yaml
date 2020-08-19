@@ -15,8 +15,8 @@ spec:
     metadata:
     {{- with .Values.podAnnotations }}
       annotations:
-      "consul.hashicorp.com/connect-inject": "true"
-      "consul.hashicorp.com/connect-service-upstreams": "{{ include "py-todo.fullname" . }}:5000"
+        "consul.hashicorp.com/connect-inject": "true"
+        "consul.hashicorp.com/connect-service-upstreams": "{{ include "py-todo.fullname" . }}:5000"
         {{- toYaml . | nindent 8 }}
     {{- end }}
       labels:
