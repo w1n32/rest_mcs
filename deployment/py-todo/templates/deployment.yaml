@@ -2,9 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "py-todo.fullname" . }}
-  annotations:
-    "consul.hashicorp.com/connect-inject": "true"
-    "consul.hashicorp.com/connect-service-upstreams": "{{ include "py-todo.fullname" . }}:5000"
   labels:
     {{- include "py-todo.labels" . | nindent 4 }}
 spec:
@@ -18,6 +15,8 @@ spec:
     metadata:
     {{- with .Values.podAnnotations }}
       annotations:
+      "consul.hashicorp.com/connect-inject": "true"
+      "consul.hashicorp.com/connect-service-upstreams": "{{ include "py-todo.fullname" . }}:5000"
         {{- toYaml . | nindent 8 }}
     {{- end }}
       labels:
